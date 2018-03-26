@@ -1,0 +1,6 @@
+Modern JS Tooling
+
+
+Our project files -> JS files (ES6 etc.)
+Tooling -> Transpile JSX + ES6 to ES5 into 1 JS file (Webpack, babel)
+
