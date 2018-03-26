@@ -4,3 +4,36 @@ Modern JS Tooling
 Our project files -> JS files (ES6 etc.)
 Tooling -> Transpile JSX + ES6 to ES5 into 1 JS file (Webpack, babel)
 
+We create components (in JSX) and use it to return html
+
+Javascript modules
+-> all the code that we write in other files is separated.
+-> code has 0 contact from one another unless you explicitly demand access (export and import) to the files.
+
+React-DOM is a separate library that is in charge of rendering components into the DOM, not the main React library
+React library -> create and manage components
+
+JSX tag, with no content, you can do self-closing tags like <App />
+
+We need to instantiate our components before passing them over to the DOM.
+-> App is a component class, and we're passing a class over to the DOM
+-> Instead, we need an instance of an component
+-> <App /> is an instance of the App component class.
+
+`ReactDOM.render(<App />, document.querySelector('.container'));`
+
+The second argument is a HTML node element that tells ReactDOM which node element to render our component into.
+It'll find the .container HTML node, and whatever we have in <App/> will exist inside .container
+
+Using React, you need to know how to break-down our app into different components.
+E.g. Search-bar should be its own component.
+
+index.js should be the main component
+The rest of the components will be in different files (modularity), no matter how small the component is.
+Modular js files need to import React, as the transpiled code for defining a component needs to reference React.
+Importing files require a proper file reference.
+
+
+Exporting Classes
+
+State
