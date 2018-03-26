@@ -1,17 +1,14 @@
-Modern JS Tooling
 
-
-Our project files -> JS files (ES6 etc.)
-Tooling -> Transpile JSX + ES6 to ES5 into 1 JS file (Webpack, babel)
-
-We create components (in JSX) and use it to return html
+==============================
+Modern React and Redux Notes
+==============================
 
 Javascript modules
 -> all the code that we write in other files is separated.
 -> code has 0 contact from one another unless you explicitly demand access (export and import) to the files.
 
-React-DOM is a separate library that is in charge of rendering components into the DOM, not the main React library
-React library -> create and manage components
+#React-DOM is a separate library that is in charge of rendering components into the DOM, not the main React library
+#React library -> create and manage components
 
 JSX tag, with no content, you can do self-closing tags like <App />
 
@@ -33,7 +30,27 @@ The rest of the components will be in different files (modularity), no matter ho
 Modular js files need to import React, as the transpiled code for defining a component needs to reference React.
 Importing files require a proper file reference.
 
+#Functional component & Class-based component
+-> Class based component are used when we need to manipulate State.
+-> Functional Components are used when we need to take in info, and produce JSX. 
+-> Functional component can contain class-based component
+-> 
 
-Exporting Classes
+# STATE
+is a plain JS object to record & react to events
+-> Each instance of a class-based Component we define has it's own state object. (functional no state)
+-> Whenever a component is changed, it re-renders, also forcing all its children to re-render too.
+-> Before using state, need to Init state.
+-> You can add additional fields to the class to store something for visual output. Thus, if something is not used in `render()`, it shouldn't be in the state.
 
-State
+`this.state = { term: '' };`
+
+-> Updating state is different from creating our state. Only state constructor will look like the above code.
+
+`this.setState({ term: e.target.value})`
+
+-> We use setState to update the fields in state, and then use
+
+`{this.state.term}` which gets the `term` field from state.
+
+-> When we do `value = {this.state.term}`, this becomes a controlled Component. A controlled Component only can change its value when the state changes. (user can't edit anything)
