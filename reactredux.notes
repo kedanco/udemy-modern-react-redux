@@ -2,6 +2,8 @@
 ==============================
 Modern React and Redux Notes
 ==============================
+# REACT
+
 
 Javascript modules
 -> all the code that we write in other files is separated.
@@ -82,3 +84,43 @@ index.js -> onVideoSelect fn only updates app state. It is passed as a property 
 2. pass videoSearch method into SearchBar, under onSearchTermChange, with new `term`
 3. Inside SearchBar, refactor onchange event, to call onInputChange with new event Value
 4. onInputChange setstate of component, and fires off the callback of onSearchTermChange.
+
+#Throttling search
+`const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);` 
+
+this.state -> component level state
+
+=====================
+# REDUX
+=====================
+
+#Split the app into Data, and Views
+Redux -> A collection of all the data used in the App, an application-level state. keeping track of the data
+      -> We centralize all of the data into one object, the state.
+React -> In-charge of the views, rendering the data on the webpage
+
+# Reducer
+A function that returns a piece of the App State
+-> Our app can have many different pieces of state.
+  E.g. Booklist application can have diff reducers
+  ```
+  Books reducer and activeBooks reducer
+    {
+      books: [ {title: 'Harry Potter'}, {title: 'Javascript'} ],
+      activeBook: { title: 'Javascript: The Good Parts'}
+    }
+  ``` 
+
+To make use of Reducer in other parts of our project, we need to export our Reducer function.
+
+Step 1: Create Reducer
+Step 2: Wire it into our application (index.js)
+
+#Promote Component into a Container
+-> Container also called 'smart components' compared to 'dumb components' (no connection to redux)
+-> Through a 3rd library, ReactRedux
+-> We want the most parent component that cares about a particular piece of state to be a container 
+-> App doesn't care about state change, only rendering of components
+
+#Simple said - if only care about display, no need to bother about data.
+#If parent component needs to do state change with data - then convert it to container
