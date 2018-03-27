@@ -54,3 +54,19 @@ is a plain JS object to record & react to events
 `{this.state.term}` which gets the `term` field from state.
 
 -> When we do `value = {this.state.term}`, this becomes a controlled Component. A controlled Component only can change its value when the state changes. (user can't edit anything)
+
+-> `this.setState({videos: videos});` can be condensed in ES6 as `this.setState({ videos })`;
+
+#Downwards Data Flow
+Only the most parent component to be the one fetching data from external sources (index)
+
+Fetching data may require some time, and thus any data required during document load may not be instant.
+
+#Props
+-> In functional component, `props` exist as an argument
+-> In class-based component, `props` exist in this.props
+-> when we refactor our components from functional to class-based, we need to change our props to this.props
+
+#Listkeys
+-> A unique tracker/ID for a list item
+-> Even if re-render component, the key will be the same (able to perform edits)
