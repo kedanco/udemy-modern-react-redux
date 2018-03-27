@@ -61,6 +61,9 @@ is a plain JS object to record & react to events
 Only the most parent component to be the one fetching data from external sources (index)
 
 Fetching data may require some time, and thus any data required during document load may not be instant.
+Some parent objects can't fetch the data fast enough before the child objects load
+-> Face errors where var is undefined, but var has a value when you test it.
+-> Can consider adding an AJAX spinner 'loading', but not for every component in the page.
 
 #Props
 -> In functional component, `props` exist as an argument
@@ -70,3 +73,12 @@ Fetching data may require some time, and thus any data required during document 
 #Listkeys
 -> A unique tracker/ID for a list item
 -> Even if re-render component, the key will be the same (able to perform edits)
+
+#Selecting and rendering different list items
+index.js -> onVideoSelect fn only updates app state. It is passed as a property into VideoList, which gets passed into VideoList Item, and into Video. (Passing callbacks)
+
+#Searchterm
+1. Refactor YTsearch term into a videoSearch fn
+2. pass videoSearch method into SearchBar, under onSearchTermChange, with new `term`
+3. Inside SearchBar, refactor onchange event, to call onInputChange with new event Value
+4. onInputChange setstate of component, and fires off the callback of onSearchTermChange.
