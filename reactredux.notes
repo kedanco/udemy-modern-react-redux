@@ -172,3 +172,28 @@ Whenever application state changes
 -> Do a check (if !value to display!) then return a filler value 
 
 # Intermediate Redux -> Middleware
+# Weather App Component Setup
+
+#Controlled Field -> Form element where value is set by state of the component.
+  e.g. Value of input = value from state
+
+
+---Making AJAX requests in Redux is gonna be hard the first time... :)?---
+#Axios works like jQuery, and is meant for making AJAX requests
+
+#Middleware -> function that take an action, (depending on action type, payload) and pass/manipulate/log/stop it.
+# Like a gatekeeper for actions, or before_action of controllers.
+-> We can have multiple Middlewares in-charge of different operations
+-> Apply middleware in main index.js file.linking middleware to Redux flow
+-> Redux Promise is a middleware
+   If the payload is a promise, redux promise stops the action entirely. it waits until the promise resolves, and then unwraps the promise for us, sending us just the data.
+   It resolves the 'asynchronous' promises we may have inside our application.
+
+# Declaring action type as a constant
+-> `export const NAME = 'value';
+-> Reduces errors, and ensures that we reference a value instead of just typing out a value across our app.
+
+componentDidMount() -> lifecycle method that gets called automatically when component is rendered
+you can do `this.refs.map` if you have `return <div ref="map" />;`
+
+#React Router and Redux Form
